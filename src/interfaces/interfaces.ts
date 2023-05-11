@@ -23,15 +23,13 @@ export interface PermissionAttributes {
 }
 
 
-//interfaces to User
+// interfaces Users
 export interface UserAttributes {
-    id_user?: number;
-    name_user: string;
+    name_user:string;
     pass: string;
     email: string;
-    status_user?:boolean
+    staff_id: string
 }
-
 
 
 

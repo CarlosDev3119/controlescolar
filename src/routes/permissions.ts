@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {  toUpperCaseBody, validateFields } from "../middlewares/validateFields";
-import { createPermission } from "../controllers/permissionsController";
+import { createPermission, deletePermission, getPermissionById, getPermissions, updatePermission } from "../controllers/permissionsController";
 
 import { PermissionSchema } from '../models/schema/schemaPermissions'; 
 import { ifPermissioneExists } from "../middlewares/validates";
@@ -9,20 +9,20 @@ import { ifPermissioneExists } from "../middlewares/validates";
 const router: Router = Router();
 
 
-//create Role 
+//create Permission 
 router.post('/',[ validateFields(PermissionSchema), toUpperCaseBody, ifPermissioneExists], createPermission);
 
-//get Roles  
-// router.get('/', getAllRoles);
+//get Permission  
+router.get('/', getPermissions);
 
-// //get Role  by id
-// router.get('/:id',[ ifRoleExists ], getRoleById);
+// //get Permissions  by id
+router.get('/:id',[ ifPermissioneExists ], getPermissionById);
 
-// //update Role 
-// router.put('/:id',[toUpperCaseBody, ifRoleExists, validateFields(RoleSchema)], updateRole);
+// //update Permission 
+router.put('/:id',[toUpperCaseBody, validateFields(PermissionSchema), ifPermissioneExists], updatePermission);
 
-// // delete role
-// router.delete('/:id', [ifRoleExists], deleteRole);
+// // delete Permission
+router.delete('/:id', [ifPermissioneExists], deletePermission);
 
 export {
     router

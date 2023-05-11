@@ -31,7 +31,7 @@ export const ifPermissioneExists = async (req: Request, res: Response, next: Nex
   const {id} = req.params;
   
   if(id){
-    const role = await Permission.findOne( {where: {id_permission: id} } );
+    const role = await Permission.findOne( {where: {id_permission: id, status_permission: true } } );
     if(!role) return res.status(400).json({msg:'The permission not exists in database' })
   }
 

@@ -3,6 +3,7 @@ CREATE TABLE users (
     name_user varchar(100) NOT NULL,
     pass varchar(100) NOT NULL,
     email varchar(100) UNIQUE NOT NULL,
+    staff_id varchar(100) UNIQUE NOT NULL,
     status_user BIT NOT NULL
 );
 
@@ -14,7 +15,9 @@ CREATE TABLE role (
 
 CREATE TABLE permissions (
     id_permission int PRIMARY KEY,
-    name_permission varchar(100) NOT NULL
+    name_permission varchar(100) NOT NULL,
+    status_permission BIT NOT NULL
+
 );
 
 CREATE TABLE users_roles_permissions (

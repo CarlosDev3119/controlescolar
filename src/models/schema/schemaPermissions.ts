@@ -7,8 +7,8 @@ export const PermissionSchema: JSONSchemaType<PermissionAttributes> =  {
     properties: {
         name_permission: {
             type: "string",
-            minLength: 5,
-            maxLength: 20,
+            minLength: 4,
+            maxLength: 15,
             pattern: "^[a-zA-Z]+$",
         },
         status_role: {
